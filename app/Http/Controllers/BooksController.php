@@ -10,6 +10,11 @@ use File;
 
 class BooksController extends Controller
 {
+    public function __construct(){
+    $this->middleware('auth',['except'=>['index']]);
+
+    //$this->middleware('auth','['except'=>['index','create','store']]');
+}
     /**
      * Display a listing of the resource.
      *
@@ -53,6 +58,9 @@ class BooksController extends Controller
             $book->image = 'NoPic.jpg';
         }
         $book->save();
+
+        $request->session()->flash('status','บันทึกข้อมูลเรียบแล้ว');
+
         return redirect()->action('BooksController@index');
         }
 

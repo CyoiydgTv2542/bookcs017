@@ -36,6 +36,8 @@ Route::get('typebooks','TypeBooksController@index')->name('typebooks');
 Route::get('typebooks/destroy/{id}','TypebooksController@destroy');
 
 Auth::routes();
+Route::resource('/books','BooksController')->name('index','books');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('books', 'BooksController')->name('index','books');

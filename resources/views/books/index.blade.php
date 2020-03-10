@@ -56,3 +56,17 @@
 </div>
 @endsection
 
+@section('footer')
+@if (session()->has('status'))
+<script>
+swal({
+    title:"<?php echo session()->get('status');?>",
+    text:"",
+    timer:2000,
+    type:'success',
+    showConfirmButton:false
+
+});
+</script>
+@endif
+@endsection
